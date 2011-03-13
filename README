@@ -1,6 +1,6 @@
 How to build:
 
-get cm6 source
+<b>get cm6 source</b>
 
 cd <cm6 source>/device/
 mkdir -p huawei/u8120
