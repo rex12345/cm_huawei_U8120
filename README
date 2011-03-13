@@ -8,12 +8,12 @@ mkdir -p huawei/u8120
 git init -u git://github.com/tas0s/cm_huawei_U8120.git
 git checkout
 
-Make this changes in the following files:
+Make these changes in the following files:
 Add add_lunch_combo cyanogen_u8120-eng in <cm6 source>/vendor/cyanogen/vendorsetup.sh
 Add $(LOCAL_DIR)/cyanogen_u8120.mk \ in <cm6 source>/vendor/products/AndroidProducts.mk
 Copy the file cyanogen_u8120.mk into <cm6 source>/vendor/products.
 
-Put a rom zip in <cm6 source> named as u8120_update.zip.
+Put an eclair rom zip in <cm6 source> named as u8120_update.zip.
 cd <cm6 source>/device/huawei/u8120
 ./unzip-files.sh
 
