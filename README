@@ -1,7 +1,8 @@
 How to build:
 
-<b>get cm6 source</b>
+- Get cm6 source
 
+-Set up files
 cd <cm6 source>/device/
 mkdir -p huawei/u8120
 git init -u git://github.com/tas0s/cm_huawei_U8120.git
@@ -21,7 +22,7 @@ connect your phone with a eclair rom via adb
 cd <cm6 source>/device/huawei/u8120
 ./extract-files.sh
 
-build:
+- Build:
 cd <cm6 source>
 source build/envsetup.sh
 lunch cyanogen_u8120-eng
