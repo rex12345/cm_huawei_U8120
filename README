@@ -6,7 +6,9 @@ How to build:
 -Set up files
 cd <cm6 source>/device/
 mkdir -p huawei/u8120
-git clone git://github.com/tas0s/cm_huawei_U8120.git
+git init
+git pull git://github.com/tas0s/cm_huawei_U8120.git
+git checkout
 
 Make these changes in the following files:
 Add add_lunch_combo cyanogen_u8120-eng in <cm6 source>/vendor/cyanogen/vendorsetup.sh
