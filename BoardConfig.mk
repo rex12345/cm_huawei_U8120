@@ -45,8 +45,8 @@ BOARD_USES_GENERIC_AUDIO := false
 BOARD_USES_QCOM_LIBS := true
 
 # Use Eclair libcamera
-#BOARD_USES_ECLAIR_LIBCAMERA := true
-#USE_CAMERA_STUB := false
+BOARD_USES_ECLAIR_LIBCAMERA := true
+
 
 # OpenGL drivers config file path
 BOARD_EGL_CFG := device/huawei/u8120/egl.cfg

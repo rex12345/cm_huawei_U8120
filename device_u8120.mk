@@ -22,9 +22,9 @@ DEVICE_PACKAGE_OVERLAYS := device/huawei/u8120/overlay
 
 PRODUCT_PACKAGES += \
     VoiceDialer \
+    Gallery \
     TSCalibration \
     gralloc.msm7k \
-    sensors.msm7k \
     copybit.u8120 \
     librs_jni
 

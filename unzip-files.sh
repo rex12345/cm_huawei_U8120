@@ -76,6 +76,7 @@ unzip -j -o ../../../${DEVICE}_update.zip system/lib/libomx_avcdec_sharedlibrary
 unzip -j -o ../../../${DEVICE}_update.zip system/lib/libomx_m4vdec_sharedlibrary.so -d ../../../vendor/huawei/$DEVICE/proprietary
 unzip -j -o ../../../${DEVICE}_update.zip system/lib/libomx_mp3dec_sharedlibrary.so -d ../../../vendor/huawei/$DEVICE/proprietary
 unzip -j -o ../../../${DEVICE}_update.zip system/lib/libaudioeq.so -d ../../../vendor/huawei/$DEVICE/proprietary
+unzip -j -o ../../../${DEVICE}_update.zip system/lib/hw/lights.msm7k.so -d ../../../vendor/huawei/$DEVICE/proprietary
 
 
 (cat << EOF) | sed s/__DEVICE__/$DEVICE/g > ../../../vendor/huawei/$DEVICE/$DEVICE-vendor-blobs.mk
@@ -154,7 +155,8 @@ PRODUCT_COPY_FILES += \\
     vendor/huawei/__DEVICE__/proprietary/libomx_avcdec_sharedlibrary.so:system/lib/libomx_avcdec_sharedlibrary.so \\
     vendor/huawei/__DEVICE__/proprietary/libomx_m4vdec_sharedlibrary.so:system/lib/libomx_m4vdec_sharedlibrary.so \\
     vendor/huawei/__DEVICE__/proprietary/libomx_mp3dec_sharedlibrary.so:system/lib/libomx_mp3dec_sharedlibrary.so \\
-    vendor/huawei/__DEVICE__/proprietary/libaudioeq.so:system/lib/libaudioeq.so
+    vendor/huawei/__DEVICE__/proprietary/libaudioeq.so:system/lib/libaudioeq.so \\
+    vendor/huawei/__DEVICE__/proprietary/lights.msm7k.so:system/lib/hw/lights.msm7k.so
 EOF
 
 ./setup-makefiles.sh
