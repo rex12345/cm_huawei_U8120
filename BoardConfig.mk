@@ -47,6 +47,7 @@ BOARD_USES_QCOM_LIBS := true
 # Use Eclair libcamera
 BOARD_USES_ECLAIR_LIBCAMERA := true
 
+BOARD_GPS_LIBRARIES := libloc_api
 
 # OpenGL drivers config file path
 BOARD_EGL_CFG := device/huawei/u8120/egl.cfg
@@ -74,6 +75,12 @@ ENABLE_JSC_JIT := true
 BOARD_KERNEL_BASE := 0x00200000
 BOARD_PAGE_SIZE := 2048
 
+#BOARD_BOOTIMAGE_MAX_SIZE := $(call image-size-from-data-size,0x00280000)
+#BOARD_RECOVERYIMAGE_MAX_SIZE := $(call image-size-from-data-size,0x00500000)
+#BOARD_SYSTEMIMAGE_MAX_SIZE := $(call image-size-from-data-size,0x0aa00000)
+#BOARD_USERDATAIMAGE_MAX_SIZE := $(call image-size-from-data-size,0x0bda0000)
+
+
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x00500000
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x00500000
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 0x0aa00000
@@ -81,4 +88,7 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x0bda0000
 BOARD_FLASH_BLOCK_SIZE := 131072 #0x00020000
 
 TARGET_PREBUILT_KERNEL := device/huawei/u8120/kernel
+
+# Stop compiling test_* binaries for eng tag
+STOP_TEST_BINS := true
 

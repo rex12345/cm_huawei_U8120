@@ -24,6 +24,7 @@ PRODUCT_PACKAGES += \
     VoiceDialer \
     Gallery \
     TSCalibration \
+    sensors.msm7k \
     gralloc.msm7k \
     copybit.u8120 \
     librs_jni
@@ -32,6 +33,11 @@ PRODUCT_PACKAGES += \
 # DHCP config for wifi
 PRODUCT_COPY_FILES += \
     device/huawei/u8120/dhcpcd.conf:/system/etc/dhcpcd/dhcpcd.conf
+
+
+# boot logo
+PRODUCT_COPY_FILES += \
+    device/huawei/u8120/prebuilt/initlogo.rle:root/initlogo.rle
 
 # Install the features available on this device.
 PRODUCT_COPY_FILES += \
@@ -82,6 +88,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # This should not be needed but on-screen keyboard uses the wrong density without it.
 PRODUCT_PROPERTY_OVERRIDES += \
     qemu.sf.lcd_density=120
+
 
 # Default network type
 # 0 => WCDMA Preferred.
