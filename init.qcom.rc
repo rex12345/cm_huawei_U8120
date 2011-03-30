@@ -50,7 +50,13 @@ on boot
 
 # Permission for ril
    chown radio /dev/oncrpc
-   chown radio system /dev/oncrpc/*
+   chown radio system /dev/oncrpc/30000016:9ac802c5
+   chown radio system /dev/oncrpc/30000000:ad750db4
+   chown radio system /dev/oncrpc/30000019:821a1945
+   chown radio system /dev/oncrpc/3000003c:cc5478d4
+   chown radio system /dev/oncrpc/30000003:a7eed910
+   chown radio system /dev/oncrpc/3000000e:a4de1f0e
+   chown radio system /dev/oncrpc/30000012:00010000
    chown radio /dev/smd*
    mkdir /data/local
    chmod 0777 /data/local
@@ -61,17 +67,15 @@ on boot
 
 
 # SD card polling
+    chown system system /sys/devices/platform/msm_hsusb_periphera/composition
     chown system system /sys/bus/platform/devices/msm_sdcc.1/polling
     chown system system /sys/bus/platform/devices/msm_sdcc.2/polling
-    #chown system system /sys/bus/platform/devices/msm_sdcc.3/polling
-    #chown system system /sys/bus/platform/devices/msm_sdcc.4/polling
 
 # Enable MASS storage on SDCARD
-    write /sys/devices/platform/mass_storage/lun0/file /dev/block/mmcblk0p1
+    write /sys/devices/platform/usb_mass_storage/lun0/file /dev/block/mmcblk0p1
     write /sys/bus/platform/drivers/msm_sdcc/msm_sdcc.1/polling 1
-    #write /sys/bus/platform/drivers/msm_sdcc/msm_sdcc.2/polling 1   
-    #write /sys/bus/platform/drivers/msm_sdcc/msm_sdcc.3/polling 1   
-    #write /sys/bus/platform/drivers/msm_sdcc/msm_sdcc.4/polling 1   
+    write /sys/bus/platform/drivers/msm_sdcc/msm_sdcc.2/polling 1  
+
 
 # Sensors
     chmod 0666 /dev/akm8973_aot

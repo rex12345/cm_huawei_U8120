@@ -79,6 +79,7 @@ adb pull /system/lib/libomx_m4vdec_sharedlibrary.so ../../../vendor/huawei/$DEVI
 adb pull /system/lib/libomx_mp3dec_sharedlibrary.so ../../../vendor/huawei/$DEVICE/proprietary/libomx_mp3dec_sharedlibrary.so
 adb pull /system/lib/libaudioeq.so ../../../vendor/huawei/$DEVICE/proprietary/libaudioeq.so
 adb pull /system/lib/hw/lights.msm7k.so ../../../vendor/huawei/$DEVICE/proprietary/lights.msm7k.so
+adb pull /system/lib/libqcamera.so ../../../vendor/huawei/$DEVICE/proprietary/libqcamera.so
 
 
 
@@ -135,8 +136,6 @@ PRODUCT_COPY_FILES += \\
     vendor/huawei/__DEVICE__/proprietary/artagent:system/wifi/artagent \\
     vendor/huawei/__DEVICE__/proprietary/athwlan.bin.z77:system/wifi/athwlan.bin.z77 \\
     vendor/huawei/__DEVICE__/proprietary/iwconfig:system/wifi/iwconfig \\
-    vendor/huawei/__DEVICE__/proprietary/libcamera.so:obj/lib/libcamera.so \\
-    vendor/huawei/__DEVICE__/proprietary/libcamera.so:system/lib/libcamera.so \\
     vendor/huawei/__DEVICE__/proprietary/oem_rpc_svc:system/bin/oem_rpc_svc \\
     vendor/huawei/__DEVICE__/proprietary/liboem_rapi.so:system/lib/liboem_rapi.so \\
     vendor/huawei/__DEVICE__/proprietary/libhwrpc.so:system/lib/libhwrpc.so \\
@@ -144,6 +143,9 @@ PRODUCT_COPY_FILES += \\
     vendor/huawei/__DEVICE__/proprietary/sensors.default.so:/system/lib/hw/sensors.default.so \\
     vendor/huawei/__DEVICE__/proprietary/libloc_api.so:/system/lib/libloc_api.so \\
     vendor/huawei/__DEVICE__/proprietary/libloc_api-rpc.so:/system/lib/libloc_api-rpc.so \\
+    vendor/huawei/__DEVICE__/proprietary/libcamera.so:obj/lib/libcamera.so \\
+    vendor/huawei/__DEVICE__/proprietary/libcamera.so:system/lib/libcamera.so \\
+    vendor/huawei/__DEVICE__/proprietary/libqcamera.so:system/lib/libqcamera.so \\
     vendor/huawei/__DEVICE__/proprietary/libmmjpeg.so:system/lib/libmmjpeg.so \\
     vendor/huawei/__DEVICE__/proprietary/libmmipl.so:system/lib/libmmipl.so \\
     vendor/huawei/__DEVICE__/proprietary/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \\

@@ -41,6 +41,7 @@ WIFI_DRIVER_MODULE_NAME     := "ar6000"
 BOARD_KERNEL_CMDLINE := mem=211M androidboot.hardware=qcom no_console_suspend=1 console=null
 
 BOARD_HAVE_BLUETOOTH := true
+BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_USES_GENERIC_AUDIO := false
 BOARD_USES_QCOM_LIBS := true
 
