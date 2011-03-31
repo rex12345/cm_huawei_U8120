@@ -64,6 +64,7 @@ unzip -j -o ../../../${DEVICE}_update.zip system/lib/libloc_api-rpc.so -d ../../
 unzip -j -o ../../../${DEVICE}_update.zip system/lib/libmmjpeg.so -d ../../../vendor/huawei/$DEVICE/proprietary
 unzip -j -o ../../../${DEVICE}_update.zip system/lib/libmmipl.so -d ../../../vendor/huawei/$DEVICE/proprietary
 unzip -j -o ../../../${DEVICE}_update.zip system/lib/libqcamera.so -d ../../../vendor/huawei/$DEVICE/proprietary
+unzip -j -o ../../../${DEVICE}_update.zip system/lib/libmmprocess.so -d ../../../vendor/huawei/$DEVICE/proprietary
 unzip -j -o ../../../${DEVICE}_update.zip system/etc/init.qcom.bt.sh -d ../../../vendor/huawei/$DEVICE/proprietary
 unzip -j -o ../../../${DEVICE}_update.zip system/bin/hci_qcomm_init -d ../../../vendor/huawei/$DEVICE/proprietary
 unzip -j -o ../../../${DEVICE}_update.zip system/lib/libdll.so -d ../../../vendor/huawei/$DEVICE/proprietary
@@ -140,11 +141,13 @@ PRODUCT_COPY_FILES += \\
     vendor/huawei/__DEVICE__/proprietary/sensors.default.so:/system/lib/hw/sensors.default.so \\
     vendor/huawei/__DEVICE__/proprietary/libloc_api.so:/system/lib/libloc_api.so \\
     vendor/huawei/__DEVICE__/proprietary/libloc_api-rpc.so:/system/lib/libloc_api-rpc.so \\
-    vendor/huawei/__DEVICE__/proprietary/libcamera.so:obj/lib/libcamera.so \\
-    vendor/huawei/__DEVICE__/proprietary/libcamera.so:system/lib/libcamera.so \\
     vendor/huawei/__DEVICE__/proprietary/libqcamera.so:system/lib/libqcamera.so \\
     vendor/huawei/__DEVICE__/proprietary/libmmjpeg.so:system/lib/libmmjpeg.so \\
+    vendor/huawei/__DEVICE__/proprietary/libmmipl.so:obj/lib/libmmipl.so \\
     vendor/huawei/__DEVICE__/proprietary/libmmipl.so:system/lib/libmmipl.so \\
+    vendor/huawei/__DEVICE__/proprietary/libcamera.so:obj/lib/libcamera.so \\
+    vendor/huawei/__DEVICE__/proprietary/libcamera.so:system/lib/libcamera.so \\
+    vendor/huawei/__DEVICE__/proprietary/libmmprocess.so:system/lib/libmmprocess.so \\
     vendor/huawei/__DEVICE__/proprietary/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \\
     vendor/huawei/__DEVICE__/proprietary/hci_qcomm_init:system/bin/hci_qcomm_init \\
     vendor/huawei/__DEVICE__/proprietary/libdll.so:system/lib/libdll.so \\
