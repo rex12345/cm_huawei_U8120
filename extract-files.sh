@@ -78,6 +78,7 @@ adb pull /system/lib/libomx_amrenc_sharedlibrary.so ../../../vendor/huawei/$DEVI
 adb pull /system/lib/libomx_avcdec_sharedlibrary.so ../../../vendor/huawei/$DEVICE/proprietary/libomx_avcdec_sharedlibrary.so
 adb pull /system/lib/libomx_m4vdec_sharedlibrary.so ../../../vendor/huawei/$DEVICE/proprietary/libomx_m4vdec_sharedlibrary.so
 adb pull /system/lib/libomx_mp3dec_sharedlibrary.so ../../../vendor/huawei/$DEVICE/proprietary/libomx_mp3dec_sharedlibrary.so
+adb pull /system/lib/libomx_sharedlibrary_qc.so ../../../vendor/huawei/$DEVICE/proprietary/libomx_sharedlibrary_qc.so
 adb pull /system/lib/libaudioeq.so ../../../vendor/huawei/$DEVICE/proprietary/libaudioeq.so
 adb pull /system/lib/hw/lights.msm7k.so ../../../vendor/huawei/$DEVICE/proprietary/lights.msm7k.so
 
@@ -161,6 +162,7 @@ PRODUCT_COPY_FILES += \\
     vendor/huawei/__DEVICE__/proprietary/libomx_avcdec_sharedlibrary.so:system/lib/libomx_avcdec_sharedlibrary.so \\
     vendor/huawei/__DEVICE__/proprietary/libomx_m4vdec_sharedlibrary.so:system/lib/libomx_m4vdec_sharedlibrary.so \\
     vendor/huawei/__DEVICE__/proprietary/libomx_mp3dec_sharedlibrary.so:system/lib/libomx_mp3dec_sharedlibrary.so \\
+    vendor/huawei/__DEVICE__/proprietary/libomx_sharedlibrary_qc.so:system/lib/libomx_sharedlibrary_qc.so \\
     vendor/huawei/__DEVICE__/proprietary/libaudioeq.so:system/lib/libaudioeq.so \\
     vendor/huawei/__DEVICE__/proprietary/lights.msm7k.so:system/lib/hw/lights.msm7k.so
 EOF

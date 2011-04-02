@@ -57,6 +57,12 @@ on boot
    chown radio system /dev/oncrpc/30000003:a7eed910
    chown radio system /dev/oncrpc/3000000e:a4de1f0e
    chown radio system /dev/oncrpc/30000012:00010000
+   chown radio system /dev/oncrpc/3000001b:fae9727e
+   chown radio system /dev/oncrpc/3000001d:ba845703
+   chown radio system /dev/oncrpc/3000005b:a60286b0
+   chown radio system /dev/oncrpc/3000fe00:a82d4624
+   chown radio system /dev/oncrpc/3000006b:00010000
+   chown radio system /dev/oncrpc/00000000:0
    chown radio /dev/smd*
    mkdir /data/local
    chmod 0777 /data/local
