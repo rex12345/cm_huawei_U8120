@@ -39,6 +39,9 @@ on boot
     mkdir /data/misc/dhcp 0770 dhcp dhcp
     chown dhcp dhcp /data/misc/dhcp
     mkdir /data/system 0775 system system
+    
+    # write screen calibration
+    write /sys/class/input/input1/calibration_points 837,864,166,859,507,503,844,142,167,142
 
 
 # Permission for ril
