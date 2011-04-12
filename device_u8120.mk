@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_us_supl.mk)
@@ -22,26 +22,41 @@ $(call inherit-product, device/common/gps/gps_us_supl.mk)
 DEVICE_PACKAGE_OVERLAYS := device/huawei/u8120/overlay
 
 PRODUCT_PACKAGES += \
-    VoiceDialer \
-    Gallery \
-    TSCalibration \
+    libOmxCore \
+    #libOmxVidEnc \
     gralloc.msm7k \
-    copybit.u8120 \
+    lights.msm7k \
     gps.u8120 \
-    librs_jni \
-    dexpreopt
+    librs_jni 
 
-DISABLE_DEXPREOPT := false
+# Add Gallery 3D / Normal
+PRODUCT_PACKAGES += \
+    Gallery
 
+# vold config
+PRODUCT_COPY_FILES += \
+    device/huawei/u8120/vold.fstab:system/etc/vold.fstab
+
+# Modules
+PRODUCT_COPY_FILES += \
+    device/huawei/u8120/prebuilt/tun.ko:system/lib/modules/2.6.29-perf/tun.ko
+PRODUCT_COPY_FILES += \
+    device/huawei/u8120/prebuilt/ramzswap.ko:system/lib/modules/2.6.29-perf/ramzswap.ko
 
 # DHCP config for wifi
 PRODUCT_COPY_FILES += \
-    device/huawei/u8120/dhcpcd.conf:/system/etc/dhcpcd/dhcpcd.conf
+    device/huawei/u8120/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf
 
-
-# boot logo
 PRODUCT_COPY_FILES += \
-    device/huawei/u8120/prebuilt/initlogo.rle:root/initlogo.rle
+    device/huawei/u8120/ueventd.qcom.rc:root/ueventd.qcom.rc
+
+#Audio
+PRODUCT_COPY_FILES += \
+    device/huawei/u8120/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt
+
+# Use prebuilt vold for now.
+#PRODUCT_COPY_FILES += \
+    device/huawei/u8120/vold:system/bin/vold
 
 # Install the features available on this device.
 PRODUCT_COPY_FILES += \
@@ -49,11 +64,8 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.camera.autofocus.xml:system/etc/permissions/android.hardware.camera.autofocus.xml \
     frameworks/base/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
     frameworks/base/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
-    frameworks/base/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
-    frameworks/base/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
-    frameworks/base/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
     frameworks/base/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
-    frameworks/base/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml
+    frameworks/base/data/etc/android.hardware.touchscreen.xml:system/etc/permissions/android.hardware.touchscreen.xml
 
 # keychars and keylayout files
 PRODUCT_COPY_FILES += \
@@ -62,7 +74,8 @@ PRODUCT_COPY_FILES += \
     device/huawei/u8120/prebuilt/keychars/surf_keypad.kcm.bin:system/usr/keychars/surf_keypad.kcm.bin \
     device/huawei/u8120/prebuilt/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
     device/huawei/u8120/prebuilt/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl \
-    device/huawei/u8120/prebuilt/keylayout/surf_keypad.kl:system/usr/keylayout/surf_keypad.kl
+    device/huawei/u8120/prebuilt/keylayout/surf_keypad.kl:system/usr/keylayout/surf_keypad.kl 
+    
 
 PRODUCT_PROPERTY_OVERRIDES := \
     keyguard.no_require_sim=true \
@@ -77,9 +90,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=eth0 \
     ro.com.android.dataroaming=false \
     ring.delay=0 \
-    ro.telephony.Call_ring.delay=0 \
-    ro.config.oobe_TScalibration=true
+    ro.telephony.call_ring.delay=0 \
+    ro.telephony.call_ring.multiple=false \
 
+
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    ro.compcache.default=1 
 
 # Time between scans in seconds. Keep it high to minimize battery drain.
 # This only affects the case in which there are remembered access points,
@@ -92,11 +108,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=120
 
-# This should not be needed but on-screen keyboard uses the wrong density without it.
-PRODUCT_PROPERTY_OVERRIDES += \
-    qemu.sf.lcd_density=120
-
-
 # Default network type
 # 0 => WCDMA Preferred.
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -104,7 +115,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Enable JIT by default
 PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.execution-mode=int:jit
+    dalvik.vm.execution-mode=int:jit \
+    persist.sys.use_dithering=0
+
 
 # Don't put dexfiles in /cache on u8120
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -112,15 +125,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # media configuration xml file
 PRODUCT_COPY_FILES += \
-    device/huawei/u8120/media_profiles.xml:/system/etc/media_profiles.xml
+    device/huawei/u8120/media_profiles.xml:system/etc/media_profiles.xml
 
 # wpa_supplicant configuration file
 PRODUCT_COPY_FILES += \
-    device/huawei/u8120/wpa_supplicant.conf:/system/etc/wifi/wpa_supplicant.conf
-
-# Audio
-PRODUCT_COPY_FILES += \
-    device/huawei/u8120/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt
+    device/huawei/u8120/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 	LOCAL_KERNEL := device/huawei/u8120/kernel
@@ -137,6 +146,6 @@ $(call inherit-product-if-exists, vendor/huawei/u8120/u8120-vendor.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/generic.mk)
 
 # Discard inherited values and use our own instead.
-PRODUCT_NAME := u8120
+PRODUCT_NAME := generic_u8120
 PRODUCT_DEVICE := u8120
 PRODUCT_MODEL := Huawei U8120

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright (C) 2009 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,7 +21,7 @@
          EVENT_SIM_NETWORK_LOCKED events from the Sim.  If true, this will
          prevent the IccNetworkDepersonalizationPanel from being shown,
          and effectively disable the "Sim network lock" feature. -->
-    <bool name="ignore_sim_network_locked_events">false</bool>
+    <bool name="ignore_sim_network_locked_events">true</bool>
 
     <!-- Flag indicating whether the Phone app should provide
          a "Dismiss" button on the SIM network unlock screen.

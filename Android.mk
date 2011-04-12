@@ -13,4 +13,4 @@
 # limitations under the License.
 
 
-include $(call all-named-subdir-makefiles, libaudio libril libcopybit)
+include $(call all-named-subdir-makefiles, libaudio libril)

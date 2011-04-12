@@ -2,7 +2,6 @@
 
 ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),u8120)
 
-## Ugly hack: override default libril
 MODULE.TARGET.SHARED_LIBRARIES.libril :=
 
 LOCAL_PATH:= $(call my-dir)

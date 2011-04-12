@@ -22,10 +22,14 @@
 # against the traditional rules of inheritance).
 USE_CAMERA_STUB := true
 
+# Fake building with eclair cam
+#BOARD_USES_ECLAIR_LIBCAMERA := true
+
 # inherit from the proprietary version
 -include vendor/huawei/u8120/BoardConfigVendor.mk
 
 TARGET_BOARD_PLATFORM := msm7k
+
 TARGET_CPU_ABI := armeabi-v6j
 TARGET_CPU_ABI2 := armeabi
 TARGET_ARCH_VARIANT := armv6j
@@ -41,28 +45,39 @@ WIFI_DRIVER_MODULE_NAME     := "ar6000"
 BOARD_KERNEL_CMDLINE := mem=211M androidboot.hardware=qcom no_console_suspend=1 console=null
 
 BOARD_HAVE_BLUETOOTH := true
-BOARD_HAVE_BLUETOOTH_BCM := true
-BOARD_USES_GENERIC_AUDIO := false
-BOARD_USES_QCOM_LIBS := true
-
-# Use Eclair libcamera
-BOARD_USES_ECLAIR_LIBCAMERA := true
-
-BOARD_GPS_LIBRARIES := libloc_api
 
 # OpenGL drivers config file path
 BOARD_EGL_CFG := device/huawei/u8120/egl.cfg
 BOARD_HAS_LIMITED_EGL := true
 TARGET_HARDWARE_3D := false
 
-TARGET_OTA_ASSERT_DEVICE := u8120
-PRODUCT_BUILD_PROP_OVERRIDES += TARGET_BOOTLOADER_BOARD_NAME=u8120
-TARGET_BOOTLOADER_BOARD_NAME=u8120
+TARGET_USES_OLD_LIBSENSORS_HAL := true
 
-TARGET_HAVE_TSLIB := true
+NO_FALLBACK_FONT:=true
+
+TARGET_PROVIDES_LIBAUDIO := true
+TARGET_PROVIDES_LIBRIL := true
+
+BOARD_USES_QCOM_LIBS := true
+BOARD_USES_QCOM_LIBRPC := true
+BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := u8120
+BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 3200
+
+TARGET_LIBAGL_USE_GRALLOC_COPYBITS := true
+BOARD_NO_RGBX_8888 := true
 
 WITH_JIT := true
-ENABLE_JSC_JIT := true
+JS_ENGINE := v8
+
+AVOID_DRAW_TEXTURE_EXTENSION := true
+ 
+
+TARGET_OTA_ASSERT_DEVICE := joy,u8120
+TARGET_BOOTLOADER_BOARD_NAME=u8120
+
+
+BOARD_KERNEL_BASE := 0x00200000
+BOARD_PAGE_SIZE := 2048
 
 # # cat /proc/mtd
 # dev:    size   erasesize  name
@@ -73,14 +88,6 @@ ENABLE_JSC_JIT := true
 # mtd4: 00500000 00020000 "recovery"
 # mtd5: 00140000 00020000 "misc"
 
-BOARD_KERNEL_BASE := 0x00200000
-BOARD_PAGE_SIZE := 2048
-
-#BOARD_BOOTIMAGE_MAX_SIZE := $(call image-size-from-data-size,0x00280000)
-#BOARD_RECOVERYIMAGE_MAX_SIZE := $(call image-size-from-data-size,0x00500000)
-#BOARD_SYSTEMIMAGE_MAX_SIZE := $(call image-size-from-data-size,0x0aa00000)
-#BOARD_USERDATAIMAGE_MAX_SIZE := $(call image-size-from-data-size,0x0bda0000)
-
 
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x00500000
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x00500000
@@ -90,6 +97,6 @@ BOARD_FLASH_BLOCK_SIZE := 131072 #0x00020000
 
 TARGET_PREBUILT_KERNEL := device/huawei/u8120/kernel
 
-# Stop compiling test_* binaries for eng tag
-STOP_TEST_BINS := true
-
+BOARD_USE_USB_MASS_STORAGE_SWITCH := true
+# Add LUNFILE configuration to the system
+BOARD_UMS_LUNFILE := "/sys/devices/platform/usb_mass_storage/lun0/file"
