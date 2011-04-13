@@ -1,6 +1,6 @@
 # Copyright 2006 The Android Open Source Project
 
-ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),u8120)
+ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),U8120)
 
 MODULE.TARGET.SHARED_LIBRARIES.libril :=
 

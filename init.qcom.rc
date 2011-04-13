@@ -12,10 +12,11 @@ on boot
 
 # cpufreq configurations
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 245760
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 600000
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor ondemand
     write /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate 20000
-    write /sys/devices/system/cpu/cpufreq/ondemand/up_threshold 60
-    write /sys/devices/system/cpu/cpufreq/ondemand/down_threshold 30
+    write /sys/devices/system/cpu/cpufreq/ondemand/up_threshold 76
+    write /sys/devices/system/cpu/cpufreq/ondemand/down_threshold 60
 
 
 # Setup bluetooth
@@ -77,7 +78,8 @@ on boot
 
 # Enable MASS storage on SDCARD
     write /sys/devices/platform/mass_storage/lun0/file /dev/block/mmcblk0p1
-    write /sys/bus/platform/drivers/msm_sdcc/msm_sdcc.1/polling 1   
+    write /sys/bus/platform/drivers/msm_sdcc/msm_sdcc.1/polling 1 
+    write /sys/bus/platform/drivers/msm_sdcc/msm_sdcc.2/polling 1
 
 # Sensors
     chmod 0666 /dev/akm8973_aot
@@ -91,11 +93,6 @@ on boot
     write /sys/kernel/logger/log_events/priority 2
     write /sys/kernel/logger/log_radio/enable 1
     write /sys/kernel/logger/log_radio/priority 2
-
-#do calibration when have file calibration.ini in sdcard
-service TSCalibration /system/bin/TSCalibration
-    user root
-    oneshot
 
 on property:init.svc.hcid=running
     write /sys/devices/virtual/bluetooth/hci0/idle_timeout 7000

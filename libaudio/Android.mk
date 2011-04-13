@@ -1,4 +1,4 @@
-ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),u8120)
+ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),U8120)
 ## Ugly hack: override default libaudio
 MODULE.TARGET.SHARED_LIBRARIES.libaudio :=
 MODULE.TARGET.SHARED_LIBRARIES.libaudiopolicy :=
